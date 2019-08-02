@@ -62,7 +62,7 @@ resources:
   - name: distributionRules_demo
     type: DistributionRule
     configuration:
-      sourceArtifactory: art
+      sourceDistribution: distribution
       serviceName: "*"
       siteName: "*"
       cityName: "*"
