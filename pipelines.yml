@@ -103,8 +103,6 @@ pipelines:
       - name: publish_svc_build_demo
         type: PublishBuildInfo
         configuration:
-          integrations:
-            - name: art
           inputSteps:
             - name: push_svc_demo
           outputResources:
@@ -211,8 +209,6 @@ pipelines:
       - name: publish_app_build_demo
         type: PublishBuildInfo
         configuration:
-          integrations:
-            - name: art
           inputSteps:
             - name: build_app_demo
           outputResources:
@@ -239,8 +235,6 @@ pipelines:
           dryRun: false
           sign: false
           description: "some random test description"
-          integrations:
-            - name: art
           inputResources:
             - name: svc_promoted_build_info_demo
               trigger: false
@@ -252,8 +246,6 @@ pipelines:
       - name: sign_demo
         type: SignReleaseBundle
         configuration:
-          integrations:
-            - name: art
           inputResources:
             - name: releaseBundle_demo
           outputResources:
