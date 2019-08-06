@@ -115,7 +115,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           nodePool: ranjithr_pool
-          targetRepository: demo
+          targetRepository: pipelines_demo
           integrations:
             - name: jfrogtraining
           inputResources:
@@ -221,7 +221,7 @@ pipelines:
       - name: promote_app_build
         type: PromoteBuild
         configuration:
-          targetRepository: demo
+          targetRepository: pipelines_demo
           integrations:
             - name: jfrogtraining
           inputResources:
