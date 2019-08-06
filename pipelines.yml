@@ -82,6 +82,7 @@ pipelines:
       - name: bld_svc_demo
         type: DockerBuild
         configuration:
+          nodePool: ranjithr_pool 
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: artifactory-swampup.jfrogdev.co/docker-local/gosvc
@@ -94,6 +95,7 @@ pipelines:
       - name: push_svc_demo
         type: DockerPush
         configuration:
+          nodePool: ranjithr_pool
           targetRepository: docker-local
           integrations:
             - name: art
@@ -111,6 +113,7 @@ pipelines:
       - name: promote_svc_build_demo
         type: PromoteBuild
         configuration:
+          nodePool: ranjithr_pool
           targetRepository: demo
           integrations:
             - name: art
