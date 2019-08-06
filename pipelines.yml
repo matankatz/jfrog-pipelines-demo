@@ -8,14 +8,14 @@ resources:
   - name: svc_build_info_demo
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: jfrogtraining
       buildName: svc_build
       buildNumber: 1
 
   - name: svc_promoted_build_info_demo
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: jfrogtraining
       buildName: svc_build
       buildNumber: 1
 
@@ -28,14 +28,14 @@ resources:
   - name: app_build_info_demo
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: jfrogtraining
       buildName: backend_build
       buildNumber: 1
 
   - name: app_promoted_build_info_demo
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: jfrogtraining
       buildName: backend_build
       buildNumber: 1
 
@@ -90,7 +90,7 @@ pipelines:
           inputResources:
             - name: go_gitRepo_demo
           integrations:
-            - name: art
+            - name: jfrogtraining
 
       - name: push_svc_demo
         type: DockerPush
@@ -98,7 +98,7 @@ pipelines:
           nodePool: ranjithr_pool
           targetRepository: docker-local
           integrations:
-            - name: art
+            - name: jfrogtraining
           inputSteps:
             - name: bld_svc_demo
 
@@ -116,7 +116,7 @@ pipelines:
           nodePool: ranjithr_pool
           targetRepository: demo
           integrations:
-            - name: art
+            - name: jfrogtraining
           inputResources:
             - name: svc_build_info_demo
           outputResources:
@@ -140,7 +140,7 @@ pipelines:
           inputResources:
             - name: backend_gitRepo_demo
           integrations:
-            - name: art
+            - name: jfrogtraining
 
 
       - name: bld_frontend
@@ -152,7 +152,7 @@ pipelines:
           inputResources:
             - name: frontend_gitRepo_demo
           integrations:
-            - name: art
+            - name: jfrogtraining
 
       - name: pack_frontend
         type: Bash
@@ -160,7 +160,7 @@ pipelines:
           inputSteps:
             - name: bld_frontend
           integrations:
-            - name: art
+            - name: jfrogtraining
         execution:
           onStart:
             - export tempStateLocation="$step_tmp_dir/npmSourceState"
@@ -176,7 +176,7 @@ pipelines:
           inputSteps:
             - name: pack_frontend
           integrations:
-            - name: art
+            - name: jfrogtraining
         execution:
           onStart:
             - export inputNpmBuildStepName="bld_frontend"
@@ -193,7 +193,7 @@ pipelines:
             - name: bld_backend_demo
             - name: publish_frontend_demo
           integrations:
-            - name: art
+            - name: jfrogtraining
         execution:
           onStart:
             - rm -rf $run_dir/workspace/jfrog
@@ -222,7 +222,7 @@ pipelines:
         configuration:
           targetRepository: demo
           integrations:
-            - name: art
+            - name: jfrogtraining
           inputResources:
             - name: app_build_info_demo
           outputResources:
@@ -262,7 +262,7 @@ pipelines:
             - name: signedBundle_demo
             - name: distributionRules_demo
           integrations:
-            - name: art
+            - name: jfrogtraining
 
       - name: deploy
         type: Bash
