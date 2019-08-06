@@ -128,6 +128,7 @@ pipelines:
       - name: bld_backend_demo
         type: MvnBuild
         configuration:
+          nodePool: ranjithr_pool 
           runtime:
             type: image
             image:
@@ -147,6 +148,7 @@ pipelines:
       - name: bld_frontend
         type: NpmBuild
         configuration:
+          nodePool: ranjithr_pool
           npmArgs: --no-progress --no-audit
           sourceLocation: .
           repositoryName: npm-virtual
@@ -158,6 +160,7 @@ pipelines:
       - name: pack_frontend
         type: Bash
         configuration:
+          nodePool: ranjithr_pool
           inputSteps:
             - name: bld_frontend
           integrations:
@@ -173,6 +176,7 @@ pipelines:
       - name: publish_frontend_demo
         type: NpmPublish
         configuration:
+          nodePool: ranjithr_pool
           repositoryName: npm-prod-local
           inputSteps:
             - name: pack_frontend
@@ -185,6 +189,7 @@ pipelines:
       - name: build_app_demo
         type: Bash
         configuration:
+          nodePool: ranjithr_pool
           environmentVariables:
             dockerImageName: jfrogtraining-docker-local.jfrog.io/docker-local/app
             dockerImageTag: ${run_number}
@@ -213,6 +218,7 @@ pipelines:
       - name: publish_app_build_demo
         type: PublishBuildInfo
         configuration:
+          nodePool: ranjithr_pool
           inputSteps:
             - name: build_app_demo
           outputResources:
@@ -221,6 +227,7 @@ pipelines:
       - name: promote_app_build
         type: PromoteBuild
         configuration:
+          nodePool: ranjithr_pool
           targetRepository: pipelines-demo
           integrations:
             - name: jfrogtraining
