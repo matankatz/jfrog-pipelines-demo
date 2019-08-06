@@ -85,7 +85,7 @@ pipelines:
           nodePool: ranjithr_pool 
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: artifactory-swampup.jfrogdev.co/docker-local/gosvc
+          dockerImageName: jfrogtraining-docker-local.jfrog.io/docker-local/gosvc
           dockerImageTag: $run_number
           inputResources:
             - name: go_gitRepo_demo
@@ -185,7 +185,7 @@ pipelines:
         type: Bash
         configuration:
           environmentVariables:
-            dockerImageName: artifactory-swampup.jfrogdev.co/docker-local/app
+            dockerImageName: jfrogtraining-docker-local.jfrog.io/docker-local/app
             dockerImageTag: ${run_number}
           inputResources:
             - name: backend_gitRepo_demo
