@@ -85,7 +85,7 @@ pipelines:
           nodePool: ranjithr_pool 
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: jfrogtraining-docker-local.jfrog.io/docker-local/gosvc
+          dockerImageName: jfrogtraining-docker-local.jfrog.io/gosvc
           dockerImageTag: $run_number
           inputResources:
             - name: go_gitRepo_demo
@@ -105,6 +105,7 @@ pipelines:
       - name: publish_svc_build_demo
         type: PublishBuildInfo
         configuration:
+          nodePool: ranjithr_pool
           inputSteps:
             - name: push_svc_demo
           outputResources:
