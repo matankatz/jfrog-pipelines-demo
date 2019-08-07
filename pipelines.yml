@@ -201,7 +201,8 @@ pipelines:
           integrations:
             - name: jfrogtraining
         execution:
-          onStart:
+          onExecute:
+            - printenv
             - rm -rf $run_dir/workspace/jfrog
             - retry_command jfrog rt config --url $int_jfrogtraining_url --user $int_jfrogtraining_user --apikey $int_jfrogtraining_apikey --interactive=false
             - pushd $res_backend_gitRepo_demo_resourcePath
