@@ -206,7 +206,7 @@ pipelines:
             - retry_command jfrog rt config --url $int_jfrogtraining_url --user $int_jfrogtraining_user --apikey $int_jfrogtraining_apikey --interactive=false
             - pushd $res_backend_gitRepo_demo_resourcePath
             - echo $int_jfrogtraining_url
-            - echo $run_Number
+            - echo $run_number
             - echo $dockerImageName
             - echo $dockerImageTag
             - add_run_variables buildStepName=${step_name}
