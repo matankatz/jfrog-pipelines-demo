@@ -3,11 +3,5 @@ pipelines:
     steps:
       - name: sleep_10
         type: Bash
-        configuration:
-          nodePool: ranjithr_pool 
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-          dockerImageName: jfrogtraining-docker-local.jfrog.io/gosvc
-          dockerImageTag: $run_number
         onExecute:
         - sleep 10
