@@ -3,5 +3,6 @@ pipelines:
     steps:
       - name: sleep_10
         type: Bash
-        onExecute:
-        - sleep 10
+        execution:
+          onExecute:
+          - sleep 10
